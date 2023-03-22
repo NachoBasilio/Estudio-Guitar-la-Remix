@@ -1,9 +1,12 @@
 import {
     Meta,
     Links,
-    Outlet
+    Outlet,
+    Scripts
 } from '@remix-run/react'
-import styles from './styles/index.css'
+import styles from '~/styles/index.css'
+import Header from '~/components/header'
+
 
 export function meta(){
     return(
@@ -61,7 +64,9 @@ function Document({children}){
                 <Meta></Meta>
             </head>
             <body>
+                <Header></Header>
                 {children}
+                <Scripts></Scripts>
             </body>
         </html>
     )
