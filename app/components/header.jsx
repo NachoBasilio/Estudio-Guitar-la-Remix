@@ -14,6 +14,12 @@ function Header() {
                 <Link 
                 to="/nosotros"
                 >Nosotros</Link>
+                <Link 
+                to="/tienda"
+                >Tienda</Link>
+                <Link 
+                to="/blog"
+                >Blog</Link>
             </nav>
         </div>
     </header>

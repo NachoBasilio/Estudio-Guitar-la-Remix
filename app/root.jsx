@@ -2,7 +2,8 @@ import {
     Meta,
     Links,
     Outlet,
-    Scripts
+    Scripts,
+    LiveReload
 } from '@remix-run/react'
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
@@ -67,6 +68,7 @@ function Document({children}){
                 <Header></Header>
                 {children}
                 <Scripts></Scripts>
+                <LiveReload></LiveReload>
             </body>
         </html>
     )
