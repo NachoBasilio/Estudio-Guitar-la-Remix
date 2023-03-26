@@ -37,7 +37,7 @@ export function links(){
         {
             rel: 'preconnect',
             href: "https://fonts.gstatic.com" ,
-            crossOrigin: true
+            crossOrigin: "true"
         },
         {
             rel: 'stylesheet',
