@@ -1,13 +1,35 @@
+import { useLoaderData } from "@remix-run/react"
+import Guitarra from "~/components/guitarra"
+import { getGuitarras } from "~/models/guitarras.server"
+
+
+
+
 export async function loader(){
-  const respuesta = await fetch(process.env.API_URL+"/guitarras?populate=imagen")
-  const resultado = await respuesta.json()
-  console.log(resultado)
-  return {}
+  const guitarras = await getGuitarras()
+
+  return guitarras
 }
 
 function Tienda() {
+  const guitarras = useLoaderData()
+
   return (
-    <div>tienda</div>
+    <main className="contenedor">
+      <h2 className="heading">Nuestra Coleccion</h2>
+      {guitarras.data.length && (
+        <div className="guitarra-grid">
+          {
+            guitarras.data.map( guitarra =>(
+              <Guitarra
+              key={guitarra.id}
+              guitarra={guitarra?.attributes}
+              />
+            ))
+          }
+        </div>
+      )}
+    </main>
   )
 }
 
