@@ -4,7 +4,7 @@ import styles from "../styles/nosotros.css"
 export function meta() {
   return(
     {
-        title: 'GuitarLA - Sobre Nosotros',
+        title: 'GuitarLA | Sobre Nosotros',
     }
 )
 }

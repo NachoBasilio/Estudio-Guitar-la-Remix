@@ -3,11 +3,12 @@ import {
     Links,
     Outlet,
     Scripts,
-    LiveReload
+    LiveReload,
 } from '@remix-run/react'
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
 import Footer from '~/components/footer'
+
 
 
 export function meta(){
@@ -15,7 +16,7 @@ export function meta(){
         {
             charset: 'utf-8',
             title: 'GuitarLA - Remix',
-            viewport: 'width=divice-width, initial-scale=1'
+            viewport: "width=device-width,initial-scale=1"
         }
     )
 }
@@ -26,10 +27,7 @@ export function links(){
             rel: 'stylesheet',
             href: 'https://necolas.github.io/normalize.css/8.0.1/normalize.css'
         },
-        {
-            rel: 'stylesheet',
-            href: styles
-        },
+
         {
             rel: 'preconnect',
             href: "https://fonts.googleapis.com"
@@ -42,6 +40,10 @@ export function links(){
         {
             rel: 'stylesheet',
             href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap"
+        },
+        {
+            rel: 'stylesheet',
+            href: styles
         }
     ]
 }
@@ -58,19 +60,19 @@ export default function App(){
     )
 }
 
-function Document({children}){
-    return(
+function Document({children}) {
+    return (
         <html lang="es">
             <head>
-                <Links></Links>
-                <Meta></Meta>
+                <Meta />
+                <Links />
             </head>
             <body>
-                <Header></Header>
+                <Header />
                 {children}
-                <Footer></Footer>
-                <Scripts></Scripts>
-                <LiveReload></LiveReload>
+                <Footer />
+                <Scripts />
+                <LiveReload />
             </body>
         </html>
     )
