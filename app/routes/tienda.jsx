@@ -13,6 +13,7 @@ export async function loader(){
 
 function Tienda() {
   const guitarras = useLoaderData()
+  console.log(guitarras.data)
 
   return (
     <main className="contenedor">
