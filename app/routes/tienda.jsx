@@ -26,7 +26,7 @@ function Tienda() {
     <main className="contenedor">
       <h2 className="heading">Nuestra Coleccion</h2>
       {guitarras.data.length && (
-        <div className="guitarra-grid">
+        <div className="guitarras-grid">
           {
             guitarras.data.map( guitarra =>(
               <Guitarra
