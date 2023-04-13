@@ -2,6 +2,25 @@ import { useLoaderData } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
 import styles from '~/styles/guitarras.css'
 
+export async function loader({request, params}){
+  const {guitarraUrl} = params
+  
+  const guitarra = await getGuitarra(guitarraUrl)
+  
+ 
+  return guitarra
+}
+
+
+export function meta({data}) {
+  return(
+    {
+        title: `GuitarLA - ${data.data[0].attributes.nombre}`,
+        descripcion: `Guitarra, venta de guitarra: ${data.data[0].attributes.nombre}`,
+    }
+)
+}
+
 export function links(){
     return [
       {
@@ -9,15 +28,6 @@ export function links(){
         href: styles
       },
     ]
-  }
-
-export async function loader({request, params}){
-    const {guitarraUrl} = params
-    
-    const guitarra = await getGuitarra(guitarraUrl)
-    
-   
-    return guitarra
 }
 
 export default function Guitarra() {

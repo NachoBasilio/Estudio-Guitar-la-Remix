@@ -4,6 +4,7 @@ import {
     Outlet,
     Scripts,
     LiveReload,
+    useCatch,
 } from '@remix-run/react'
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
@@ -75,5 +76,22 @@ function Document({children}) {
                 <LiveReload />
             </body>
         </html>
+    )
+}
+
+export function CatchBoundary(){
+    const error = useCatch()
+    return (
+        <Document>
+            <p className='error'>{error.status} {error.statusText}</p>
+        </Document>
+    )
+}
+
+export function ErrorBoundary(error){
+    return(
+        <Document>
+        <p className='error'>{error.status} {error.statusText}</p>
+        </Document> 
     )
 }
