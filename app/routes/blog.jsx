@@ -3,6 +3,12 @@ import Post from "~/components/post"
 import { getPosts } from "~/models/post.server"
 import styles from "~/styles/blog.css"
 
+export function meta (){
+  return {
+    title: "GuutarLA - Nuestro Blog",
+    description: "GuitarLA, blog de musica y venta de ins"
+  }
+}
 
 export async function loader(){
   const posts = await getPosts()
@@ -23,16 +29,15 @@ function Blog() {
 
   return (
     <main className="contenedor">
-      <h2 className="heading">
-        <div className="blog">
+      <h2 className="heading">Blog</h2>
+      <div className="blog">
           {posts.map(post=>(
             <Post 
             key={post.id}
             post={post.attributes}
             ></Post>
           ))}
-        </div>
-      </h2>
+      </div>
     </main>
   )
 }

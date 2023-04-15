@@ -42,4 +42,12 @@
 
 .mt-3 {
     margin-top: 3rem;
+    text-align: center;
+}
+
+
+
+.post .texto{
+    white-space: pre-wrap;
+    text-align: justify;
 }
