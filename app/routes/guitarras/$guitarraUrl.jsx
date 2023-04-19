@@ -4,6 +4,7 @@ import styles from '~/styles/guitarras.css'
 
 export async function loader({request, params}){
   const {guitarraUrl} = params
+  console.log(params)
   const guitarra = await getGuitarra(guitarraUrl)
   
   if(guitarra.data.length === 0){
