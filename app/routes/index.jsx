@@ -1,8 +1,10 @@
 import { useLoaderData } from "@remix-run/react"
 import ListadoGuitarras from "~/components/listado-guitarras"
+import ListadoPost from "~/components/listado-posts"
 import { getGuitarras } from "~/models/guitarras.server"
 import { getPosts } from "~/models/post.server"
 import stylesGuitarras from "~/styles/guitarras.css"
+import stylesBlog from "~/styles/blog.css"
 
 export function meta(){
 
@@ -13,6 +15,10 @@ export function links(){
     {
       rel: 'stylesheet',
       href: stylesGuitarras
+    },
+    {
+      rel: 'stylesheet',
+      href: stylesBlog
     },
   ]
 }
@@ -43,7 +49,11 @@ function Index() {
   return (
     <>
       <main className="contenedor">
-       <ListadoGuitarras guitarras={guitarras}/>
+        <ListadoGuitarras guitarras={guitarras}/>
+      </main>
+
+      <main className="contenedor">
+        <ListadoPost posts={posts}/>
       </main>
     </>
   )
