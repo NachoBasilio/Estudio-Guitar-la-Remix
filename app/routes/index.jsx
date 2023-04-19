@@ -2,6 +2,7 @@ import { useLoaderData } from "@remix-run/react"
 import ListadoGuitarras from "~/components/listado-guitarras"
 import { getGuitarras } from "~/models/guitarras.server"
 import { getPosts } from "~/models/post.server"
+import stylesGuitarras from "~/styles/guitarras.css"
 
 
 getGuitarras
@@ -11,7 +12,12 @@ export function meta(){
 }
 
 export function links(){
-  
+  return [ 
+    {
+      rel: 'stylesheet',
+      href: stylesGuitarras
+    },
+  ]
 }
 
 export async function loader(){
