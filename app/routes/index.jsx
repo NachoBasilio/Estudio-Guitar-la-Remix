@@ -4,9 +4,6 @@ import { getGuitarras } from "~/models/guitarras.server"
 import { getPosts } from "~/models/post.server"
 import stylesGuitarras from "~/styles/guitarras.css"
 
-
-getGuitarras
-
 export function meta(){
 
 }
