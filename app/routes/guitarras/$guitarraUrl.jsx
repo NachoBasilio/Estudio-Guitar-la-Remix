@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData, useOutletContext } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
 import styles from '~/styles/guitarras.css'
 
@@ -45,6 +45,8 @@ export function links(){
 }
 
 export default function Guitarra() {
+    const data = useOutletContext()
+    console.log(data)
     const [cantidad, setCantidad] = useState(0)
 
     const guitarra = useLoaderData()
