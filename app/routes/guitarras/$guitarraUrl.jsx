@@ -45,8 +45,8 @@ export function links(){
 }
 
 export default function Guitarra() {
-    const data = useOutletContext()
-    console.log(data)
+    const {agregarCarrito} = useOutletContext()
+    
     const [cantidad, setCantidad] = useState(0)
 
     const guitarra = useLoaderData()
@@ -67,7 +67,7 @@ export default function Guitarra() {
         cantidad
       }
 
-      console.log(guitarraSeleccionada)
+      agregarCarrito(guitarraSeleccionada)
 
     }
 

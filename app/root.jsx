@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
     Meta,
     Links,
@@ -10,6 +11,7 @@ import {
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
 import Footer from '~/components/footer'
+
 
 
 
@@ -55,12 +57,17 @@ export function links(){
 
 
 export default function App(){
+    const [carrito, setCarrito] = useState([])
+
+    const agregarCarrito = guitarra => {
+        setCarrito(...carrito, guitarra)
+    }
+
     return(
         <Document>
             <Outlet
                 context={{
-                    guitarLA: "GuitarLA",
-                    auth: true
+                    agregarCarrito,
                 }}
             />
         </Document>
