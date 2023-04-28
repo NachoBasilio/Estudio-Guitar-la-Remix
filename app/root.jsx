@@ -60,7 +60,20 @@ export default function App(){
     const [carrito, setCarrito] = useState([])
 
     const agregarCarrito = guitarra => {
-        setCarrito(...carrito, guitarra)
+        if (!(carrito.some(guitarraState=>guitarraState.id === guitarra.id))){
+            setCarrito([...carrito, guitarra])
+        }else{
+            const carritoActualizado = carrito.map(guitarraState=>{
+                if(guitarraState.id === guitarra.id){
+                    return{
+                        ...guitarraState,
+                        cantidad: guitarra.cantidad
+                    }
+                }
+                return guitarraState
+            })
+            setCarrito(carritoActualizado)
+        }
     }
 
     return(
