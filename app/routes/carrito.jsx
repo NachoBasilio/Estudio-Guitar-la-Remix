@@ -1,4 +1,5 @@
 import styles from '~/styles/carrito.css'
+import { useOutletContext } from '@remix-run/react'
 
 
 export function links() {
@@ -18,12 +19,27 @@ export function meta() {
 }
 
 function Carrito() {
+  const {carrito} = useOutletContext()
   return (
     <main className='contenedor'>
         <h1 className='heading'>Carrito de compras</h1>
         <div className='contenido'>
             <div className='carrito'>
-                <h2 className>Articulos</h2>
+              <h2 className>Articulos</h2>
+              {carrito.length === 0 ? 'carrito Vacio': (
+                carrito.map(producto=>(
+                  <div key={producto.key} className='producto'>
+                    <div>
+                      <img src={producto.imagen} alt={"imagen del producto" + producto.nombre} />
+                    </div>
+                    <div>
+                      <p className="nombre">{producto.nombre}</p>
+                      <p className='precio'>$ <span>{producto.precio}</span></p>
+                      <p className='subtotal'>Subtotal: $ <span>{producto.precio * producto.cantidad}</span></p>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
             <aside className='resumen'>
                 <h3>Resumen del pedido</h3>
