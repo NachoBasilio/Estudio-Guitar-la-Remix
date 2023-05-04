@@ -32,7 +32,7 @@ export function meta({data}) {
         title: `GuitarLA - ${data.data[0].attributes.nombre}`,
         descripcion: `Guitarra, venta de guitarra: ${data.data[0].attributes.nombre}`,
     }
-)
+  )
 }
 
 export function links(){
