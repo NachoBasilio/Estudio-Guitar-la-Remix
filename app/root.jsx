@@ -61,7 +61,7 @@ export default function App(){
     const [carrito, setCarrito] = useState(carritoLS)
 
     useEffect(()=>{
-        localStorage('carrito', JSON.stringify(carrito))
+        localStorage.setItem('carrito', JSON.stringify(carrito))
     },[carrito])
 
     const agregarCarrito = guitarra => {
