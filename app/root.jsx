@@ -75,6 +75,7 @@ export default function App(){
             setCarrito(carritoActualizado)
         }
     }
+
     const actualizarCantidad = guitarra => {
         const carritoActualizado = carrito.map(guitarraState=>{
             if(guitarraState.id === guitarra.id){
@@ -87,6 +88,11 @@ export default function App(){
         })
         setCarrito(carritoActualizado)
     }
+    
+    const eliminarGuitarra = id => {
+        const carritoActualizado = carrito.filter(guitarraState=>guitarraState.id !== id)
+        setCarrito(carritoActualizado)
+    }
 
     return(
         <Document>
@@ -94,7 +100,8 @@ export default function App(){
                 context={{
                     agregarCarrito,
                     carrito,
-                    actualizarCantidad
+                    actualizarCantidad,
+                    eliminarGuitarra
                 }}
             />
         </Document>
